@@ -6,7 +6,7 @@ import FileList from './components/FileList'
 import Auth from './components/Auth'
 
 // Địa chỉ URL của backend Flask
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://0.0.0.0:5000'
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://api.plantify.info.vn'
 
 export default function App() {
   const [files, setFiles] = useState([])
