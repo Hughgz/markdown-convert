@@ -173,7 +173,7 @@ export default function App() {
       <header className="bg-white shadow">
         <div className="container mx-auto px-4 py-4 max-w-6xl flex justify-between items-center">
           <h1 className="text-xl font-bold text-gray-800">
-            DOCX to Markdown Converter
+            DOCXS to Markdown Converter
           </h1>
           <div className="flex items-center space-x-4">
             <div className="text-sm text-gray-600">
