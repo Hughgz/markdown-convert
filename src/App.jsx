@@ -97,7 +97,7 @@ export default function App() {
       formData.append('format', format)
       
       // Gửi request đến backend
-      const response = await fetch(`${BACKEND_URL}/api/merge-and-convert`, {
+      const response = await fetch(`${BACKEND_URL}/merge-and-convert`, {
         method: 'POST',
         body: formData,
       })
