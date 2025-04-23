@@ -6,7 +6,12 @@ export default function FileUploader({ onFilesChange }) {
   const onDrop = useCallback((acceptedFiles) => {
     // Validate files
     const validFiles = acceptedFiles.filter(
-      file => file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      file => file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || 
+              file.type === 'application/msword' ||
+              // Một số trình duyệt có thể không nhận diện chính xác mime type, 
+              // kiểm tra thêm phần mở rộng
+              file.name.toLowerCase().endsWith('.docx') || 
+              file.name.toLowerCase().endsWith('.doc')
     )
     
     if (validFiles.length > 0) {
@@ -17,7 +22,8 @@ export default function FileUploader({ onFilesChange }) {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: {
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx']
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document': ['.docx'],
+      'application/msword': ['.doc']
     }
   })
 
@@ -32,7 +38,7 @@ export default function FileUploader({ onFilesChange }) {
         <p className="text-blue-500">Thả file vào đây ...</p>
       ) : (
         <div>
-          <p className="text-gray-600">Kéo và thả file DOCX vào đây</p>
+          <p className="text-gray-600">Kéo và thả file DOCX / DOC vào đây</p>
           <p className="text-sm text-gray-500">hoặc click để chọn file</p>
         </div>
       )}
